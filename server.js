@@ -47,6 +47,13 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Use Routes
+app.use(
+  '/api',
+  createProxyMiddleware({
+    target: 'https://blackoutstore-be-iota.vercel.app',
+    changeOrigin: true,
+  })
+);
 app.use('/api/configs', globalConfigs);
 app.use('/api/customers', customers);
 app.use('/api/catalog', catalog);
