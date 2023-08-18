@@ -6,6 +6,7 @@ const path = require('path');
 require('dotenv').config();
 
 // const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
 const globalConfigs = require('./routes/globalConfigs');
 const customers = require('./routes/customers');
 const catalog = require('./routes/catalog');
@@ -48,6 +49,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 // Use Routes
+app.use(cors());
 // app.use('/api', createProxyMiddleware({ target: 'http://blackoutstore-be-iota.vercel.app', changeOrigin: true }));
 app.use('/api/configs', globalConfigs);
 app.use('/api/customers', customers);
