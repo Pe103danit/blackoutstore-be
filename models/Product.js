@@ -64,7 +64,7 @@ const ProductSchema = new Schema(
             default: Date.now
         },
         sale: {
-            type: String
+            type: Boolean
         },
         slider: {
             type: String
